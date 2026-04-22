@@ -42,7 +42,7 @@ export const portfolioData = {
     links: {
       github: "https://github.com/mhd-dilshad-p",
       linkedin: "https://www.linkedin.com/in/mhd-dilshad-p",
-      website: "https://m-dilshad-p.vercel.app/",
+      website: "https://mohammeddilshad-p.vercel.app/",
       resume: "/assets/documents/Mohammed_Dilshad_P.pdf",
     },
   },
