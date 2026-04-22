@@ -118,10 +118,12 @@ export const portfolioData = {
     },
   ],
   featuredTech: [
-    { name: "Flutter", icon: "/assets/tech/flutter.png", tone: "cyan" },
-    { name: "Firebase", icon: "/assets/tech/firebase.png", tone: "amber" },
-    { name: "GitHub", icon: "/assets/tech/github.png", tone: "ink" },
-    { name: "Android Studio", icon: "/assets/tech/android.png", tone: "green" },
+    { name: "Flutter", icon: "/assets/icons/flutter.png" },
+    { name: "Dart", icon: "/assets/icons/dart.png" },
+    { name: "Firebase", icon: "/assets/icons/firebase.png" },
+    { name: "Supabase", icon: "/assets/icons/supabase.png" },
+    { name: "GitHub", icon: "/assets/icons/GitHub.png" },
+    { name: "Android", icon: "/assets/icons/android.png" },
   ],
   skills: [
     {

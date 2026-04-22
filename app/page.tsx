@@ -126,8 +126,8 @@ export default function HomePage() {
                 <Image
                   src={tech.icon}
                   alt={`${tech.name} logo`}
-                  width={64}
-                  height={64}
+                  width={48}
+                  height={48}
                   className="object-contain"
                 />
               </div>
