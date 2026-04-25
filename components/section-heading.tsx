@@ -1,7 +1,7 @@
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
-  description: string;
+  description?: string;
 };
 
 export function SectionHeading({
@@ -13,7 +13,7 @@ export function SectionHeading({
     <div className="section-heading">
       <p className="eyebrow">{eyebrow}</p>
       <h2 className="text-gradient">{title}</h2>
-      <p className="section-description">{description}</p>
+      {description && <p className="section-description">{description}</p>}
     </div>
   );
 }
