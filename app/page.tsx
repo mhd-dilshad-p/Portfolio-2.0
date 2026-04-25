@@ -96,7 +96,6 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="hero-profile-ring" />
             </div>
           </aside>
         </div>
