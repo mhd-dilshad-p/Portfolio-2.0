@@ -320,7 +320,6 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
                 href={link.href}
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
-                className="button button-primary"
               >
                 {link.label}
               </a>
@@ -328,7 +327,7 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
           )}
           {(project.name === "FuelDost" || project.name === "NaDodi") && (
             <div className="download-apk-wrapper">
-              <a href="#" className="button button-tertiary download-apk-btn">
+              <a href="#" className="download-apk-btn">
                 Download APK
               </a>
               <span className="apk-tooltip">Coming Soon</span>
