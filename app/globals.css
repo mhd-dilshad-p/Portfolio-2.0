@@ -600,12 +600,13 @@ section {
 .project-logo-wrap {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #1e293b 0%, #020617 100%);
+  background: #ffffff;
   border-radius: 20px;
   border: 1px solid var(--surface-border);
   display: grid;
   place-items: center;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
 }
 
 .project-showcase h3 {
@@ -797,14 +798,13 @@ section {
   height: 48px;
   display: grid;
   place-items: center;
-  background: rgba(255,255,255,0.05);
+  background: transparent;
   border-radius: 12px;
-  padding: 0.5rem;
+  padding: 0;
   transition: var(--transition-fast);
 }
 
 .tech-card:hover .tech-icon {
-  background: rgba(255,255,255,0.1);
   transform: scale(1.08);
 }
 
@@ -832,12 +832,8 @@ section {
   box-shadow: 0 16px 48px rgba(22, 163, 74, 0.15);
 }
 
-[data-theme="light"] .tech-icon {
-  background: rgba(22, 163, 74, 0.05);
-}
-
 [data-theme="light"] .tech-card:hover .tech-icon {
-  background: rgba(22, 163, 74, 0.15);
+  transform: scale(1.08);
 }
 
 /* Timeline Items */
@@ -866,6 +862,7 @@ section {
 .education-stack {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .education-card:last-child {
@@ -1105,6 +1102,7 @@ section {
 
 .carousel-thumb-frame {
   position: relative;
+  display: block;
   width: 100%;
   height: 100%;
 }

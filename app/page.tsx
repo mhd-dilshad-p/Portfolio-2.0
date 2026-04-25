@@ -144,7 +144,6 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Featured Projects"
-          description="Case studies of production-ready applications delivered across various industries."
         />
 
         <div className="project-stack">
@@ -207,7 +206,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shell section section-last" id="contact">
+      <section className="shell section section-last" id="contact" style={{ marginTop: '4rem' }}>
         <div className="cta-card">
           <div>
             <p className="eyebrow">Contact</p>
@@ -267,8 +266,8 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
             <Image
               src={project.logo}
               alt={`${project.name} logo`}
-              width={64}
-              height={64}
+              width={80}
+              height={80}
               className="object-contain"
             />
           </div>
