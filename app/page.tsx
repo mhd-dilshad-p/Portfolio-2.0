@@ -90,10 +90,10 @@ export default function HomePage() {
                 <Image
                   src="/assets/logo_cv.png"
                   alt="Mohammed Dilshad P - Flutter Developer"
-                  fill
-                  sizes="400px"
+                  width={400}
+                  height={500}
                   priority
-                  className="object-cover"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
                 />
               </div>
             </div>

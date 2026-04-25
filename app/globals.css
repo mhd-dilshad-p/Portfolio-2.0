@@ -407,7 +407,6 @@ section {
 .hero-profile-image {
   position: relative;
   width: 280px;
-  height: 380px;
   border-radius: 24px;
   overflow: hidden;
   z-index: 2;
