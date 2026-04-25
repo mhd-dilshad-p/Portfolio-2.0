@@ -35,7 +35,7 @@ export const portfolioData = {
     summary:
       "Passionate Flutter developer building scalable, real-world applications across delivery, travel, and utility products with a strong focus on modular architecture, practical UX, and dependable backend integration.",
     introduction:
-      "I design and build polished Flutter products that move from idea to usable production systems. My work spans customer apps, admin dashboards, realtime workflows, PDF and QR experiences, and backend-connected mobile architecture.",
+      "I build Flutter apps that go beyond UI — from multi-role delivery platforms with Supabase backends to freelance client tools shipped on deadline. Four production apps. Two backend platforms. Ready to join a team and ship from day one.",
     availability:
       "Open to Flutter engineering, full-stack mobile, and product-focused frontend roles.",
     languages: ["English", "Malayalam", "Tamil"],
