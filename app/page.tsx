@@ -141,7 +141,6 @@ export default function HomePage() {
 
       <section className="shell section" id="projects">
         <SectionHeading
-          eyebrow="Portfolio"
           title="Featured Projects"
         />
 

@@ -107,23 +107,7 @@ export function DeviceCarousel({
         </button>
       </div>
 
-      {mode === "project" ? (
-        <div className="carousel-thumbs" style={{ position: 'relative', zIndex: 100 }}>
-          {shots.map((shot, index) => (
-            <button
-              key={`thumb-${shot.src}`}
-              type="button"
-              className={`carousel-thumb ${index === activeIndex ? "is-active" : ""}`}
-              onClick={() => setActiveIndex(index)}
-              aria-label={`View ${shot.alt}`}
-            >
-              <span className="carousel-thumb-frame">
-                <Image src={shot.src} alt="" fill sizes="100px" />
-              </span>
-            </button>
-          ))}
-        </div>
-      ) : null}
+
     </div>
   );
 }
