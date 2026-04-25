@@ -39,7 +39,7 @@
 
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -200px;
   left: 0;
   background: var(--accent);
   color: var(--bg);
@@ -48,6 +48,8 @@
   font-weight: 700;
   text-decoration: none;
   transition: top 0.3s;
+  height: auto;
+  width: auto;
 }
 
 .skip-link:focus {
@@ -1488,11 +1490,71 @@ section {
   color: var(--text-secondary);
   transition: all 0.3s ease;
 }
-.skill-pill:hover {
-  border-color: #00F5FF;
-  color: #00F5FF;
-  box-shadow: 0 0 12px rgba(0, 245, 255, 0.4);
+.section-heading h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-top: 1rem;
+}
+
+.tech-showcase {
+  margin-bottom: 12rem;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.carousel-thumbs {
+  margin-top: 5rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.carousel-thumb {
+  width: 70px;
+  height: 120px;
+  border-radius: 12px;
+  border: 2px solid var(--surface-border);
+  background: rgba(255,255,255,0.02);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.carousel-thumb.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
   transform: scale(1.05);
+}
+
+.carousel-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.carousel-thumb-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 [data-theme="light"] .skill-pill {
