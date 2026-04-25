@@ -45,9 +45,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
         <meta name="description" content="Mohammed Dilshad P — Flutter Developer from Kerala. Specialist in cross-platform mobile apps, Supabase backends, and production-ready UI. Open to work." />
         <meta property="og:title" content="Mohammed Dilshad P | Flutter Developer" />
         <meta property="og:description" content="4 apps shipped. Flutter + Supabase specialist. Immediate joiner based in Kerala, India." />

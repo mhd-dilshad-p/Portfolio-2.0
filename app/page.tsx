@@ -103,6 +103,7 @@ export default function HomePage() {
 
       <section className="shell section" id="skills">
         <SectionHeading
+          eyebrow="Toolkit"
           title="Core Technologies"
           description="A specialized stack for high-performance mobile application development."
         />
@@ -152,6 +153,7 @@ export default function HomePage() {
 
       <section className="shell section" id="experience">
         <SectionHeading
+          eyebrow="Track Record"
           title="Background"
           description="A professional journey of continuous learning and successful project shipping."
         />

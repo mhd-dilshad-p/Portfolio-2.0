@@ -59,7 +59,6 @@ export function DeviceCarousel({
           ))}
           <div className="phone-reflection" />
         </div>
-        <div className="phone-dynamic-island" />
       </div>
 
       <div className="carousel-controls" style={{ position: 'relative', zIndex: 100 }}>
@@ -107,23 +106,7 @@ export function DeviceCarousel({
         </button>
       </div>
 
-      {mode === "project" ? (
-        <div className="carousel-thumbs">
-          {shots.map((shot, index) => (
-            <button
-              key={`thumb-${shot.src}`}
-              type="button"
-              className={`carousel-thumb ${index === activeIndex ? "is-active" : ""}`}
-              onClick={() => setActiveIndex(index)}
-              aria-label={`View ${shot.alt}`}
-            >
-              <span className="carousel-thumb-frame">
-                <Image src={shot.src} alt="" fill sizes="100px" />
-              </span>
-            </button>
-          ))}
-        </div>
-      ) : null}
+
     </div>
   );
 }
