@@ -521,8 +521,17 @@ section {
 
 /* Section Architecture */
 .section-heading {
-  margin-bottom: 6rem;
+  margin-bottom: 8rem;
   text-align: center;
+}
+
+.section-heading h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-top: 1rem;
 }
 
 .section-description {
@@ -737,7 +746,8 @@ section {
 
 /* Tech Showcase */
 .tech-showcase {
-  margin-top: 4rem;
+  margin-top: 6rem;
+  margin-bottom: 12rem; /* Added large space here */
   display: flex;
   justify-content: center;
   gap: 1.5rem;
