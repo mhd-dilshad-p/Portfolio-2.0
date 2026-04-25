@@ -169,7 +169,7 @@ export const portfolioData = {
   ],
   experience: [
     {
-      role: "Flutter Development Trainee",
+      role: "Flutter Developer Intern",
       company: "Zoople Technologies",
       location: "Kerala, India",
       period: "2025 - 2026",

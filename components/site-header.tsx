@@ -2,10 +2,32 @@
 
 import { navigationItems } from "@/lib/portfolio-data";
 import { useTheme } from "./theme-provider";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function SiteHeader() {
   const { theme, toggleTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px" }
+    );
+
+    navigationItems.forEach((item) => {
+      const el = document.getElementById(item.href.replace("#", ""));
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="site-header">
@@ -16,11 +38,19 @@ export function SiteHeader() {
         </a>
         <nav aria-label="Primary navigation">
           <ul className="nav-list">
-            {navigationItems.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
+            {navigationItems.map((item) => {
+              const isActive = activeSection === item.href.replace("#", "");
+              return (
+                <li key={item.href}>
+                  <a 
+                    href={item.href}
+                    className={isActive ? "active" : ""}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
             <li>
               <button
                 className="theme-toggle"

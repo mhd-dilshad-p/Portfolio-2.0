@@ -38,7 +38,7 @@ export default function HomePage() {
         <div className="shell hero-grid">
           <div className="hero-copy">
             <div className="hero-kicker-row">
-              <span className="availability-pill">Available for Projects</span>
+              <span className="availability-pill">Open to Work — Flutter Developer</span>
             </div>
 
             <h1 className="hero-title">
@@ -59,24 +59,27 @@ export default function HomePage() {
                 className="button button-secondary"
                 href={portfolioData.person.links.resume}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Resume
+              </a>
+              <a className="button button-tertiary" href="#contact">
+                Get in Touch
               </a>
             </div>
 
             <div className="hero-mini-grid">
               <div className="hero-mini-card">
-                <span>Location</span>
-                <strong>{portfolioData.person.location}</strong>
+                <span>Apps Shipped</span>
+                <strong>4</strong>
               </div>
               <div className="hero-mini-card">
-                <span>Focus</span>
-                <strong>High-Performance UI</strong>
+                <span>Backend Platforms</span>
+                <strong>2+</strong>
               </div>
               <div className="hero-mini-card">
-                <span>Experience</span>
-                <strong>4 Production Apps</strong>
+                <span>Immediate Joiner</span>
+                <strong>Now</strong>
               </div>
             </div>
           </div>
@@ -85,7 +88,7 @@ export default function HomePage() {
             <div className="hero-profile-wrapper">
               <div className="hero-profile-image">
                 <Image
-                  src="/assets/profile/dilshad-profile.jpg"
+                  src="/assets/logo_cv.png"
                   alt="Mohammed Dilshad P - Flutter Developer"
                   fill
                   sizes="400px"
@@ -110,9 +113,9 @@ export default function HomePage() {
           {portfolioData.skills.map((group) => (
             <article className="skill-card" key={group.category}>
               <h3>{group.category}</h3>
-              <ul className="chip-list">
+              <ul className="skill-pills">
                 {group.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="skill-pill">{item}</li>
                 ))}
               </ul>
             </article>
@@ -226,7 +229,7 @@ export default function HomePage() {
               className="button button-tertiary"
               href={portfolioData.person.links.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Connect on LinkedIn
             </a>
@@ -235,10 +238,15 @@ export default function HomePage() {
       </section>
 
       <footer className="shell site-footer">
-        <p>
-          © 2026 {portfolioData.person.name}. Portfolio rebuilt with aligned mock phones, smaller
-          hero typography, and cleaner screenshot-led case studies.
-        </p>
+        <div className="footer-content">
+          <p>© 2026 {portfolioData.person.name}</p>
+          <div className="footer-links">
+            <a href="https://github.com/mhd-dilshad-p" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span className="separator">|</span>
+            <a href="https://linkedin.com/in/mhd-dilshad-p" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <p className="footer-small">Built with Next.js · Deployed on Vercel</p>
+        </div>
       </footer>
     </main>
   );
@@ -300,16 +308,32 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
         </div>
 
         <div className="project-links">
-          {project.links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noreferrer" : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+          {project.name === "Adam Travels" ? (
+            <div className="private-repo-badge">
+              <span className="badge">🔒 Private Repository</span>
+              <p className="note"><em>Client project — source code available on request.</em></p>
+            </div>
+          ) : (
+            project.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className="button button-primary"
+              >
+                {link.label}
+              </a>
+            ))
+          )}
+          {(project.name === "FuelDost" || project.name === "NaDodi") && (
+            <div className="download-apk-wrapper">
+              <a href="#" className="button button-tertiary download-apk-btn">
+                Download APK
+              </a>
+              <span className="apk-tooltip">Coming Soon</span>
+            </div>
+          )}
         </div>
       </div>
     </article>

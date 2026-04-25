@@ -264,15 +264,15 @@ section {
   content: '';
   width: 8px;
   height: 8px;
-  background: var(--accent);
+  background: #10B981;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  animation: pulse-green 2s infinite;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+@keyframes pulse-green {
+  0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  50% { transform: scale(1.5); opacity: 0; box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
 .hero-title {
@@ -1468,4 +1468,173 @@ section {
   .brand-mark span:last-child {
     display: none;
   }
+}
+
+/* NEW STYLES ADDED FOR PORTFOLIO UPDATE */
+
+/* Hero Mobile Stack */
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-actions .button {
+    width: 100%;
+  }
+}
+
+/* Nav Active State */
+.nav-list a.active {
+  color: #00F5FF;
+  position: relative;
+}
+.nav-list a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: #00F5FF;
+  box-shadow: 0 0 8px #00F5FF;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Scroll To Top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #00F5FF;
+  color: #020617;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 245, 255, 0.4);
+}
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.scroll-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 245, 255, 0.6);
+}
+
+/* Skills Pills */
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin-bottom: 3rem;
+}
+.skill-pill {
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  padding: 0.6rem 1.5rem;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+.skill-pill:hover {
+  border-color: #00F5FF;
+  color: #00F5FF;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Footer Content */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: var(--accent);
+}
+.footer-links .separator {
+  color: var(--surface-border);
+}
+.footer-small {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Private Repo Badge */
+.private-repo-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.private-repo-badge .badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--surface-border);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  width: fit-content;
+}
+.private-repo-badge .note {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* Download APK Tooltip */
+.download-apk-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.download-apk-wrapper:hover .apk-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -35px;
+}
+.apk-tooltip {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-border);
+  color: var(--text-primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.download-apk-btn {
+  font-size: 0.9rem;
+  padding: 0 2rem;
+  height: 48px;
 }
