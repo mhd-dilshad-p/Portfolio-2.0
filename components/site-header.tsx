@@ -34,7 +34,8 @@ export function SiteHeader() {
       <div className="shell nav-shell">
         <a className="brand-mark" href="#top" aria-label="Go to homepage">
           <span className="brand-dot" aria-hidden="true" />
-          <span>Mohammed Dilshad P</span>
+          <span className="brand-name-desktop">Mohammed Dilshad P</span>
+          <span className="brand-name-mobile">MDP</span>
         </a>
         <nav aria-label="Primary navigation">
           <ul className="nav-list">

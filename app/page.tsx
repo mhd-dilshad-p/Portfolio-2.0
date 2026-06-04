@@ -3,6 +3,7 @@ import Script from "next/script";
 import { DeviceCarousel } from "@/components/device-carousel";
 import { SectionHeading } from "@/components/section-heading";
 import { portfolioData, type Project } from "@/lib/portfolio-data";
+import { LottiePlayer } from "@/components/lottie-player";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -122,20 +123,33 @@ export default function HomePage() {
         </div>
 
         <div className="tech-showcase">
-          {portfolioData.featuredTech.map((tech) => (
-            <div className="tech-card" key={tech.name}>
-              <div className="tech-icon">
-                <Image
-                  src={tech.icon}
-                  alt={`${tech.name} logo`}
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
+          {portfolioData.featuredTech.map((tech) => {
+            const getLottieSrc = (name: string) => {
+              if (name === "GitHub") return "/assets/animations/GitHub_logo.json";
+              if (name === "Firebase") return "/assets/animations/firebase.json";
+              if (name === "Android") return "/assets/animations/android_logo.json";
+              return null;
+            };
+            const lottieSrc = getLottieSrc(tech.name);
+            return (
+              <div className="tech-card" key={tech.name}>
+                <div className="tech-icon">
+                  {lottieSrc ? (
+                    <LottiePlayer src={lottieSrc} style={{ width: 48, height: 48 }} />
+                  ) : (
+                    <Image
+                      src={tech.icon}
+                      alt={`${tech.name} logo`}
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                    />
+                  )}
+                </div>
+                <span className="tech-name">{tech.name}</span>
               </div>
-              <span className="tech-name">{tech.name}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -161,44 +175,76 @@ export default function HomePage() {
         <div className="background-grid">
           <div className="experience-timeline">
             <h3 className="section-subheading">Experience</h3>
-            <div className="timeline-items">
-              {portfolioData.experience.map((item) => (
-                <article className="timeline-item" key={item.role}>
-                  <div className="period-badge">{item.period}</div>
-                  <div className="timeline-content">
-                    <h3>{item.role}</h3>
-                    <p className="company-info">{item.company} • {item.location}</p>
-                    <ul className="experience-list">
-                      {item.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
+            <div className="experience-timeline-content">
+              <div className="timeline-items">
+                {portfolioData.experience.map((item) => (
+                  <article className="timeline-item" key={item.role}>
+                    <div className="period-badge">{item.period}</div>
+                    <div className="timeline-content">
+                      <h3>{item.role}</h3>
+                      <p className="company-info">{item.company} • {item.location}</p>
+                      <ul className="experience-list">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              <div className="experience-timeline-visual">
+                <LottiePlayer src="/assets/animations/developer_skill_animation.json" />
+              </div>
             </div>
           </div>
 
           <aside className="education-sidebar">
             <h3 className="section-subheading">Education</h3>
             <div className="education-stack">
-              {portfolioData.education.map((item) => (
-                <article className="education-card" key={item.title}>
-                  <div className="education-visual">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="80px"
-                    />
-                  </div>
-                  <div className="education-info">
-                    <strong>{item.title}</strong>
-                    <span>{item.org}</span>
-                    <small>{item.period}</small>
-                  </div>
-                </article>
-              ))}
+              {portfolioData.education.map((item) => {
+                const getEduAnimations = (title: string) => {
+                  if (title.includes("Higher Secondary")) {
+                    return ["/assets/animations/humanites.json"];
+                  }
+                  if (title.includes("Social Work")) {
+                    return ["/assets/animations/degree.json", "/assets/animations/charity.json"];
+                  }
+                  if (title.includes("Flutter")) {
+                    return ["/assets/animations/flutter_developer.json"];
+                  }
+                  return [];
+                };
+                const anims = getEduAnimations(item.title);
+                return (
+                  <article className="education-card" key={item.title}>
+                    <div className="education-visual-wrapper">
+                      {anims.length > 0 ? (
+                        <div className="education-anims-container">
+                          {anims.map((animSrc) => (
+                            <div className="education-anim-item" key={animSrc}>
+                              <LottiePlayer src={animSrc} />
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="education-visual">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            sizes="80px"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    <div className="education-info">
+                      <strong>{item.title}</strong>
+                      <span>{item.org}</span>
+                      <small>{item.period}</small>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </aside>
         </div>
@@ -206,30 +252,45 @@ export default function HomePage() {
 
       <section className="shell section section-last" id="contact" style={{ marginTop: '4rem' }}>
         <div className="cta-card">
-          <div>
-            <p className="eyebrow">Contact</p>
-            <h2>Let&apos;s build premium Flutter experiences that feel finished.</h2>
-            <p className="cta-copy">
-              I&apos;m open to collaboration on Flutter apps, admin dashboards, backend-connected
-              mobile systems, and production-focused product interfaces.
-            </p>
-          </div>
+          <div className="cta-grid">
+            <div className="cta-info">
+              <p className="eyebrow">Contact</p>
+              <h2>Let&apos;s build premium Flutter experiences that feel finished.</h2>
+              <p className="cta-copy">
+                I&apos;m open to collaboration on Flutter apps, admin dashboards, backend-connected
+                mobile systems, and production-focused product interfaces.
+              </p>
 
-          <div className="cta-actions">
-            <a className="button button-primary" href={`mailto:${portfolioData.person.email}`}>
-              Email Me
-            </a>
-            <a className="button button-secondary" href={`tel:${portfolioData.person.phone}`}>
-              Call {portfolioData.person.phone}
-            </a>
-            <a
-              className="button button-tertiary"
-              href={portfolioData.person.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Connect on LinkedIn
-            </a>
+              <div className="cta-actions">
+                <a className="button button-primary" href={`mailto:${portfolioData.person.email}`}>
+                  <span className="btn-icon">
+                    <LottiePlayer src="/assets/animations/email_animation.json" />
+                  </span>
+                  <span>Email Me</span>
+                </a>
+                <a className="button button-secondary" href={`tel:${portfolioData.person.phone}`}>
+                  <span className="btn-icon">
+                    <LottiePlayer src="/assets/animations/call.json" />
+                  </span>
+                  <span>Call {portfolioData.person.phone}</span>
+                </a>
+                <a
+                  className="button button-tertiary"
+                  href={portfolioData.person.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="btn-icon">
+                    <LottiePlayer src="/assets/animations/linkedin.json" />
+                  </span>
+                  <span>Connect on LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="cta-visual">
+              <LottiePlayer src="/assets/animations/ui_specialist.json" />
+            </div>
           </div>
         </div>
       </section>
@@ -284,28 +345,8 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
           ))}
         </ul>
 
-        <div className="project-columns">
-          <div>
-            <h4>Highlights</h4>
-            <ul className="detail-list">
-              {project.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4>Objectives</h4>
-            <ul className="detail-list">
-              {project.outcomes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
         <div className="project-links">
-          {project.name === "Adam Travels" ? (
+          {project.links.length === 0 ? (
             <div className="private-repo-badge">
               <span className="badge">🔒 Private Repository</span>
               <p className="note"><em>Client project — source code available on request.</em></p>
@@ -322,7 +363,7 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
               </a>
             ))
           )}
-          {(project.name === "FuelDost" || project.name === "NaDodi") && (
+          {(project.slug === "fueldost" || project.slug === "nadodi") && (
             <div className="download-apk-wrapper">
               <a href="#" className="download-apk-btn">
                 Download APK

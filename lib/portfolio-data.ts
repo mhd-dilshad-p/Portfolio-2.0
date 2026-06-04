@@ -7,6 +7,7 @@ export type ProjectLink = {
 export type ProjectShot = {
   src: string;
   alt: string;
+  type?: "mobile" | "web";
 };
 
 export type Project = {
@@ -212,9 +213,9 @@ export const portfolioData = {
       slug: "alizo",
       category: "Multi-Service Delivery & Marketplace Platform",
       summary:
-        "A premium multi-surface Flutter platform connecting customers, local stores, riders, and admins inside one delivery ecosystem.",
+        "A premium multi-surface Flutter platform connecting customers, stores, riders, and admins.",
       description:
-        "Built for restaurants, groceries, pharmacies, and local retail, Alizo combines marketplace discovery, secure multi-role workflows, realtime order visibility, and operations control in one connected product.",
+        "Alizo is a comprehensive delivery platform linking local stores, delivery riders, and customers. It features secure ordering, instant Presley checkout, prescription uploads, and real-time logistics tracking powered by a Supabase backend.",
       logo: "/assets/projects/alizo-logo.png",
       stack: [
         "Flutter",
@@ -225,17 +226,8 @@ export const portfolioData = {
         "OneSignal",
         "Vercel",
       ],
-      highlights: [
-        "Built separate customer, store, rider, and admin experiences under one architecture.",
-        "Migrated backend from Firebase to Supabase with PostgreSQL, Realtime, and Row-Level Security.",
-        "Implemented multi-store checkout, live tracking, and pharmacy prescription upload flows.",
-        "Designed auto-generated IDs with PostgreSQL triggers for customers, stores, riders, and orders.",
-      ],
-      outcomes: [
-        "Enabled secure role-based access using RLS and SECURITY DEFINER functions.",
-        "Improved operational visibility through live order updates and notification flows.",
-        "Created a complete marketplace foundation for approvals, payments, analytics, and logistics.",
-      ],
+      highlights: [],
+      outcomes: [],
       gallery: [
         { src: "/assets/screenshots/Alizo/homeincutomer.jpeg", alt: "Alizo Customer Home" },
         { src: "/assets/screenshots/Alizo/restaurants-menu-cutomers.jpeg", alt: "Restaurants Menu" },
@@ -254,107 +246,129 @@ export const portfolioData = {
       ],
     },
     {
-      name: "NaDodi",
+      name: "Nadodi Travels",
       slug: "nadodi",
-      category: "Travel Booking Platform",
+      category: "Full-Stack Travel Booking Platform",
       summary:
-        "A full-stack travel product for flights, stays, packages, and transfers with mobile booking and admin operations.",
+        "A multi-surface travel booking ecosystem with user, driver, partner, and admin experiences.",
       description:
-        "NaDodi delivers a modern booking experience powered by Flutter on the client side, Firebase for secure user management, and a custom JavaScript backend powering shared operations across mobile and web.",
+        "Nadodi Travels connects travelers with taxi drivers and hotel partners. It supports real-time navigation tracking via Google Maps, booking confirmations via secure QR tickets, and separate web control dashboards for hotel partners and operators.",
       logo: "/assets/projects/nadodi-logo.jpg",
       stack: [
         "Flutter",
         "Dart",
+        "Firebase Firestore",
         "Firebase Auth",
-        "Firestore",
-        "REST APIs",
-        "JavaScript backend",
-        "Admin Web",
+        "Firebase Hosting",
+        "Google Maps API",
       ],
-      highlights: [
-        "Built the Flutter booking app together with a web admin dashboard and custom backend services.",
-        "Integrated Firebase Authentication and Firestore for secure persistence across app workflows.",
-        "Implemented QR verification, PDF generation, printing, and sharing for ticket operations.",
-        "Used REST APIs to fetch live flight, hotel, transfer, and package data.",
-      ],
-      outcomes: [
-        "Delivered a modular stack that supports separate mobile, admin, and backend development.",
-        "Improved real-world usability with travel alerts, confirmations, and document workflows.",
-        "Created a broad travel platform rather than a single booking flow.",
-      ],
+      highlights: [],
+      outcomes: [],
       gallery: [
-        { src: "/assets/screenshots/Nadodi/nadodihome.jpeg", alt: "Travel Explorer" },
-        { src: "/assets/screenshots/Nadodi/flightbooking.jpeg", alt: "Flight Selection" },
-        { src: "/assets/screenshots/Nadodi/splashnadodi.jpeg", alt: "Branding" },
+        { src: "/assets/screenshots/homescreen-nadodi.jpeg", alt: "Nadodi User App Home Screen" },
+        { src: "/assets/screenshots/cab-bookingscreen.jpeg", alt: "Cab Booking Screen" },
+        { src: "/assets/screenshots/cab-earning.jpeg", alt: "Driver Earnings Dashboard" },
+        { src: "/assets/screenshots/profilescreen-cabidriver.jpeg", alt: "Cab Driver Profile Screen" },
+        { src: "/assets/screenshots/ride-history-in-cab-driver.jpeg", alt: "Driver Ride History" },
+        { src: "/assets/screenshots/roomdetailscreen.jpeg", alt: "Hotel Room Detail Screen" },
+        { src: "/assets/screenshots/Screenshot website hotel.png", alt: "Nadodi Hotels Web Portal", type: "web" as const },
       ],
       links: [
         {
           label: "View GitHub Repository",
-          href: "https://github.com/mhd-dilshad-p/NaDodi",
+          href: "https://github.com/mhd-dilshad-p/NaDodiA",
           external: true,
         },
       ],
     },
     {
+      name: "Aqua Kair",
+      slug: "aquakair",
+      category: "Water Purifier Service Suite (Freelance)",
+      status: "Freelance Project",
+      summary:
+        "A multi-surface water purifier service suite for customer registration, warranties, and scheduling.",
+      description:
+        "Aqua Kair is a comprehensive service suite built with Flutter. It streamlines filter warranty tracking, automates technician dispatching, and integrates billing invoices across an Admin Web, Admin App, and Technician Dashboard.",
+      logo: "/assets/projects/aquakair/logo.png",
+      stack: [
+        "Flutter",
+        "Dart",
+        "Admin Web",
+        "Admin App",
+        "Technician App",
+        "Invoice Workflows",
+      ],
+      highlights: [],
+      outcomes: [],
+      gallery: [
+        { src: "/assets/projects/aquakair/admin_web_dashboard.png", alt: "Admin Web Dashboard", type: "web" as const },
+        { src: "/assets/projects/aquakair/admin_web_customer.png", alt: "Customer Management Portal", type: "web" as const },
+        { src: "/assets/projects/aquakair/admin_web_filters_adding.png", alt: "Filter Inventory Control", type: "web" as const },
+        { src: "/assets/projects/aquakair/admin_web_technician_detail.png", alt: "Technician Assignment", type: "web" as const },
+        { src: "/assets/projects/aquakair/admin_app_home.png", alt: "Admin App Home", type: "mobile" as const },
+        { src: "/assets/projects/aquakair/admin_app_customer_details.png", alt: "Customer Details", type: "mobile" as const },
+        { src: "/assets/projects/aquakair/admin_app_ebill.png", alt: "E-Bill Generator", type: "mobile" as const },
+        { src: "/assets/projects/aquakair/technician_home.png", alt: "Technician Dashboard Home", type: "mobile" as const },
+        { src: "/assets/projects/aquakair/technician_customer.png", alt: "Technician Customer Records", type: "mobile" as const },
+        { src: "/assets/projects/aquakair/technician_service_detail.png", alt: "Service Details Screen", type: "mobile" as const },
+        { src: "/assets/projects/aquakair/printing_bill.png", alt: "Bill Printing Workflow", type: "mobile" as const },
+      ],
+      links: [], // Renders as Private Repository
+    },
+    {
       name: "Adam Travels",
       slug: "adam",
-      category: "Freelance Cross-Platform Confirmation Generator",
+      category: "Confirmation Generator (Freelance)",
       status: "Freelance Work",
       summary:
-        "A freelance Flutter build for Adam Travels focused on fast, polished travel confirmation generation across web and mobile.",
+        "A custom booking confirmation generator for travel confirmation documents.",
       description:
-        "This client project was built to generate clean ticket confirmations and previews with a practical workflow for passenger data, booking history, and printable output across devices.",
+        "Built for travel agencies, this tool automates structured boarding passes, seat manifests, and printable passenger itineraries, running seamlessly on web browsers and mobile tablets.",
       logo: "/assets/projects/adam/logo.png",
-      stack: ["Flutter", "Dart", "Web", "Mobile", "PDF workflows", "Client delivery"],
-      highlights: [
-        "Built for a freelance travel business use case with web and mobile support.",
-        "Created structured booking and passenger forms with confirmation generation flow.",
-        "Implemented printable ticket preview, sharing, and booking history interfaces.",
-      ],
-      outcomes: [
-        "Delivered a focused cross-platform client app for day-to-day operations.",
-        "Showcased practical Flutter work for business documents and confirmation UX.",
-      ],
+      stack: ["Flutter", "Dart", "Web Workflows", "PDF Generation", "Client Delivery"],
+      highlights: [],
+      outcomes: [],
       gallery: [
         { src: "/assets/screenshots/Adam/adamhome_filling.jpeg", alt: "Booking Interface" },
         { src: "/assets/screenshots/Adam/ticketpreview.jpeg", alt: "Ticket Generation" },
         { src: "/assets/screenshots/Adam/adam_bookinghistory.jpeg", alt: "Transaction Logs" },
         { src: "/assets/screenshots/Adam/airlines details.jpeg", alt: "Inventory Details" },
       ],
-      links: [
-        {
-          label: "View GitHub Repository",
-          href: "https://github.com/mhd-dilshad-p/Adam",
-          external: true,
-        },
-      ],
+      links: [], // Renders as Private Repository
     },
     {
       name: "FuelDost",
       slug: "fueldost",
       category: "Fuel Cost & Route Utility App",
       summary:
-        "A utility-focused Flutter app for route planning, fuel estimation, station insights, and trip decision support.",
+        "A utility app for route planning, fuel expense tracking, and travel price analytics.",
       description:
-        "FuelDost helps users estimate travel fuel cost, analyze trips, review expense patterns, and work with map-based route context in one lightweight but practical mobile experience.",
+        "FuelDost estimates trip costs by calculating real-time route mileage and local gas prices. It tracks monthly vehicle expenses and provides smart visual analytics to minimize transit costs.",
       logo: "/assets/projects/fueldost/logo.png",
-      stack: ["Flutter", "Dart", "Maps", "Trip insights", "Cost calculation"],
-      highlights: [
-        "Combined route context, distance, and time into a simple travel-planning workflow.",
-        "Added calculator and quick-action features for practical everyday usage.",
-        "Designed insights and expense history views to extend the app beyond a single calculation screen.",
-      ],
-      outcomes: [
-        "Turned a narrow utility into a more complete mobile product experience.",
-        "Showcased problem-solving around cost visibility, navigation context, and trip understanding.",
-      ],
+      stack: ["Flutter", "Dart", "Google Maps API", "Trip Cost Analytics", "Expense History"],
+      highlights: [],
+      outcomes: [],
       gallery: [
-        { src: "/assets/screenshots/FuelDost/home1.jpeg", alt: "Route Planning" },
-        { src: "/assets/screenshots/FuelDost/expenceandhistory.jpeg", alt: "Log History" },
-        { src: "/assets/screenshots/FuelDost/insights.jpeg", alt: "Cost Analytics" },
-        { src: "/assets/screenshots/FuelDost/home2.jpeg", alt: "Dashboard" },
+        { src: "/assets/projects/fueldost/insights_analytics.jpg", alt: "Cost Insights Graph", type: "mobile" as const },
+        { src: "/assets/projects/fueldost/expenses_overview.png", alt: "Expenses Log Overview", type: "mobile" as const },
+        { src: "/assets/projects/fueldost/route_map.jpg", alt: "Route Planning & GPS", type: "mobile" as const },
+        { src: "/assets/projects/fueldost/smart_recommendations.jpg", alt: "Fuel Saving Analytics", type: "mobile" as const },
+        { src: "/assets/projects/fueldost/cost_calculation.jpg", alt: "Calculator Screen", type: "mobile" as const },
+        { src: "/assets/projects/fueldost/web_1.png", alt: "Web Landing Page", type: "web" as const },
+        { src: "/assets/projects/fueldost/web_2.png", alt: "Web Dashboard View", type: "web" as const },
       ],
       links: [
+        {
+          label: "Google Play Store",
+          href: "https://play.google.com/store/apps/details?id=com.fueldost.fuel_dost",
+          external: true,
+        },
+        {
+          label: "View Live Website",
+          href: "https://fueldostwebsite.vercel.app/",
+          external: true,
+        },
         {
           label: "View GitHub Repository",
           href: "https://github.com/mhd-dilshad-p/Fuel-Dost",
